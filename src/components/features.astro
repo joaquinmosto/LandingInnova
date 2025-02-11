@@ -1,0 +1,205 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Soluciones Personalizadas",
+    description:
+      "Creamos sitios web a medida utilizando las últimas tecnologías y frameworks, adaptándonos a las necesidades específicas de tu negocio.",
+    icon: "mdi:code-braces",
+  },
+  {
+    title: "Integración de Inteligencia Artificial",
+    description:
+      "Integramos IA en tus servicios y funcionalidades para ofrecer experiencias personalizadas y automatizadas, mejorando la eficiencia de tu web.",
+    icon: "mdi:brain",
+  },
+  {
+    title: "Optimización para SEO",
+    description:
+      "Nos encargamos de la optimización de tu sitio web, implementando herramientas SEO avanzadas que mejoran tu posicionamiento en los motores de búsqueda.",
+    icon: "mdi:search-web",
+  },
+  {
+    title: "E-Commerce Personalizado",
+    description:
+      "Desarrollamos tiendas en línea únicas, personalizadas para tu marca, con un enfoque en la experiencia de usuario y la conversión de ventas.",
+    icon: "mdi:storefront",
+  },
+  {
+    title: "Generación de Códigos QR",
+    description:
+      "Integramos códigos QR de forma efectiva en tu estrategia digital, permitiendo una conexión directa con tus usuarios desde cualquier lugar.",
+    icon: "mdi:qrcode",
+  },
+  {
+    title: "Hosting y Dominios Personalizados",
+    description:
+      "Ofrecemos servicios de hosting y dominios personalizados para asegurar que tu sitio web esté siempre rápido y disponible en todo momento.",
+    icon: "mdi:server",
+  },
+  {
+    title: "Desarrollo Web Optimizado",
+    description:
+      "Optimizamos cada aspecto de tu sitio web para garantizar tiempos de carga ultrarrápidos y una experiencia de usuario excepcional.",
+    icon: "mdi:speedometer",
+  },
+  {
+    title: "Marketing y Asesoramiento",
+    description:
+      "Te guiamos en estrategias de marketing digital, ofreciendo asesoramiento experto para posicionar tu marca y alcanzar tus objetivos de negocio.",
+    icon: "mdi:bullhorn",
+  },
+  {
+    title: "Diseño Gráfico para la Identidad de tu Empresa",
+    description:
+      "Creamos diseños gráficos exclusivos que reflejan la esencia de tu marca, desde logotipos hasta material promocional, fortaleciendo tu identidad visual.",
+    icon: "mdi:brush",
+  },
+];
+
+---
+
+<ContentSection title="Servicios" id="features">
+  <Fragment slot="lead">
+    Descubre las <span class="text-primary">soluciones personalizadas</span> que ofrecemos para tu empresa, con tecnologías de vanguardia y un enfoque único.
+  </Fragment>
+  <div class="container mx-auto px-4">
+    <div class="carousel-container relative overflow-hidden">
+      <ul class="carousel flex" aria-live="polite" aria-atomic="true">
+        {features.map(({ title, description, icon }) => (
+          <li class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 box-border p-6">
+            <div class="relative flex flex-col items-center gap-4 border border-default p-6 group transition-all duration-300 ease-in-out hover:shadow-lg h-60 md:h-80 lg:h-96">
+              <div class="flex items-center justify-center w-16 h-16 rounded-full border-2 border-current p-3 bg-white group-hover:bg-primary transition-colors duration-300">
+                <Icon name={icon} class="size-full text-primary group-hover:text-white transition-colors duration-300" />
+              </div>
+              <p class="text-center font-extrabold text-xl group-hover:text-primary transition-colors duration-300">{title}</p>
+              <p class="text-center text-sm text-offset opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:block">
+                {description}
+              </p>
+            </div>
+          </li>
+        ))}
+        <li class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 box-border p-6">
+          <div class="flex items-center justify-center h-60 md:h-80 lg:h-96">
+            <div class="text-black text-9xl font-extrabold bg-gradient-to-b from-[#404898] to-transparent pointer-events-none z-10"
+              style="background-clip: text; -webkit-background-clip: text; color: transparent;">
+              WEB SOLUTIONS
+            </div>
+          </div>
+        </li>
+        {features.map(({ title, description, icon }) => (
+          <li class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 box-border p-6">
+            <div class="relative flex flex-col items-center gap-4 border border-default p-6 group transition-all duration-300 ease-in-out hover:shadow-lg h-60 md:h-80 lg:h-96">
+              <div class="flex items-center justify-center w-16 h-16 rounded-full border-2 border-current p-3 bg-white group-hover:bg-primary transition-colors duration-300">
+                <Icon name={icon} class="size-full text-primary group-hover:text-white transition-colors duration-300" />
+              </div>
+              <p class="text-center font-extrabold text-xl group-hover:text-primary transition-colors duration-300">{title}</p>
+              <p class="text-center text-sm text-offset opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:block">
+                {description}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</ContentSection>
+
+<style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 100%;
+}
+
+.carousel-container {
+  overflow: hidden;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(calc(-100% * 6)); }
+}
+
+.carousel {
+  display: flex;
+  animation: scroll 60s infinite linear;
+}
+
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+
+.carousel-item {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-item {
+    flex: 0 0 33.33%;
+  }
+}
+
+.group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.group:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.group-hover .opacity-0 {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.group:hover .size-full {
+  transform: rotate(10deg);
+  transition: transform 0.3s ease;
+}
+
+.group:hover .font-extrabold {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #404898; /* Color de acento */
+}
+
+.carousel-item:first-of-type {
+  margin-left: 4rem;
+}
+
+.carousel-item:last-of-type {
+  margin-right: 4rem;
+}
+
+.carousel-item:last-of-type + .carousel-item:first-of-type {
+  margin-right: 4rem;
+}
+
+</style>

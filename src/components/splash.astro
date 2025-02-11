@@ -1,0 +1,56 @@
+---
+import HeroImage from "~/components/hero-image.astro";
+import Starfield from "~/components/starfield.astro";
+---
+
+<section class="relative h-full bg-[#15192F]">
+  <Starfield />
+  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
+    <HeroImage alt="Fondo inspirador con tecnologías avanzadas" src="/path/to/hero-image.jpg" />
+  </div>
+  <div class="relative grid h-full place-items-center sm:grid-cols-2 px-4 md:px-10">
+    <h2 class="flex flex-col items-center gap-8 sm:gap-10 sm:self-auto sm:justify-self-end">
+      <div class="text-center font-extrabold tracking-tight text-[#404898] text-5xl md:text-7xl lg:text-[10rem]">
+        INNOVA
+      </div>
+      <p class="text-lg sm:text-2xl text-gray-300 text-center max-w-prose px-4 sm:px-0">
+        Transformamos el futuro con soluciones tecnológicas avanzadas que potencian tu negocio.
+      </p>
+      <a href="#contact" aria-label="Contáctanos" class="mt-8 bg-gradient-to-r from-[#404898] via-[#15192F] to-[#070019] hover:from-[#404898] hover:to-[#070019] text-white px-8 py-4 rounded-lg shadow-lg text-xl transition-all ease-in-out duration-300 transform hover:scale-105">
+        ¡Contáctanos!
+      </a>
+    </h2>
+  </div>
+</section>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+
+<style>
+  h2 > div {
+    font-size: 8rem;
+  }
+
+  a {
+    transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media (max-width: 640px) {
+    h2 > div {
+      font-size: 5rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+
+    .mt-8 {
+      margin-top: 1rem;
+    }
+  }
+</style>

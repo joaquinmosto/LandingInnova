@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import type { FooterLink } from "~/types";
+
+const links: Array<FooterLink> = [
+  {
+    url: "",
+    description: "Innova official website",
+    icon: "mdi:home",
+  },
+  {
+    url: "https://api.whatsapp.com/send/?phone=543515439227&text&type=phone_number&app_absent=0",
+    description: "Innova on Whatsapp",
+    icon: "fa-brands:whatsapp",
+  },
+  {
+    url: "https://www.instagram.com/innova.webdev/",
+    description: "Innova on Instagram",
+    icon: "fa-brands:instagram",
+  },
+];
+---
+
+<footer class="relative flex flex-col items-center justify-center h-64 text-center">
+  <div
+    class="text-black text-9xl font-extrabold bg-gradient-to-b from-[#404898] to-transparent pointer-events-none z-10"
+    style="background-clip: text; -webkit-background-clip: text; color: transparent;"
+  >
+    INNOVA
+  </div>
+
+  <ul class="grid grid-cols-3 gap-4 sm:grid-cols-3 mt-4 z-20">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            class="flex size-16 items-center justify-center rounded-full border-2 border-current p-4"
+            href={link.url}
+          >
+            <span class="sr-only">{link.description}</span>
+            <Icon class="size-full" name={link.icon} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>
+
+
