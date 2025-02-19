@@ -11,7 +11,7 @@ COPY . .
 # Instala las dependencias
 RUN npm install
 
-# Construye el proyecto
+# Construye el proyecto Astro
 RUN npm run build
 
 # Expone los puertos en los que los servidores escucharán
@@ -19,4 +19,4 @@ EXPOSE 3000
 EXPOSE 4321
 
 # Comando para iniciar ambos servidores
-CMD ["sh", "-c", "npm run dev & node src/server/server.js"]
+CMD ["sh", "-c", "npm run preview & node src/server/server.js"]
