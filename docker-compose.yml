@@ -24,4 +24,12 @@ services:
     volumes:
       - ./certs:/etc/letsencrypt
       - ./webroot:/var/www/html
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $!; done;'"
+    entrypoint: 
+      - /bin/sh 
+      - -c 
+      - |
+        trap exit TERM;
+        while :; do
+          certbot renew;
+          sleep 12h & wait $!;
+        done;
