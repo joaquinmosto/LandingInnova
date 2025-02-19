@@ -25,11 +25,6 @@ services:
       - ./certs:/etc/letsencrypt
       - ./webroot:/var/www/html
     entrypoint: 
-      - /bin/sh 
-      - -c 
-      - |
-        trap exit TERM;
-        while :; do
-          certbot renew;
-          sleep 12h & wait $!;
-        done;
+      - /bin/sh
+      - -c
+      - ./certbot_renew.sh
