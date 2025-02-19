@@ -1,13 +1,21 @@
 version: '3'
 
 services:
-  app:
+  frontend:
     build: .
     ports:
       - "3000:3000"
+    volumes:
+      - .:/app
+    command: npm run preview
+
+  backend:
+    build: .
+    ports:
       - "4321:4321"
     volumes:
-      - ./app:/app
+      - .:/app
+    command: node src/server/server.js
 
   nginx:
     image: nginx:latest
@@ -19,7 +27,8 @@ services:
       - ./certs:/etc/letsencrypt
       - ./html:/usr/share/nginx/html
     depends_on:
-      - app
+      - frontend
+      - backend
 
   certbot:
     image: certbot/certbot
