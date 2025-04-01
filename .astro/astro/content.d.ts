@@ -145,6 +145,11 @@ declare module 'astro:content' {
 
 	type DataEntryMap = {
 		"showcase": {
+"anatolia": {
+	id: "anatolia";
+  collection: "showcase";
+  data: InferEntrySchema<"showcase">
+};
 "malcriadosFsa": {
 	id: "malcriadosFsa";
   collection: "showcase";

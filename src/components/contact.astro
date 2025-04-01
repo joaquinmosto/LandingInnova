@@ -40,25 +40,6 @@ const contactMethods = [
     </div>
   </div>
   <div class="grid md:grid-cols-2 gap-12 w-full max-w-4xl relative z-10">
-    <form action="http://localhost:3000/enviar-contacto" method="POST" class="grid gap-6">
-      <div class="flex gap-3 flex-col md:flex-row">
-        <input
-          class="custom-input"
-          type="text"
-          placeholder="Nombre"
-          id="name"
-          name="name"
-          required
-        />
-        <input
-          class="custom-input"
-          type="text"
-          placeholder="Apellido"
-          id="lastname"
-          name="lastname"
-        />
-      </div>
-
       <form action="https://innova-webdev.com/api/enviar-contacto" method="POST" class="grid gap-6">
         <div class="flex gap-3">
           <input
@@ -103,18 +84,89 @@ const contactMethods = [
           rows="4"
           required
         ></textarea>
-      
-      {contactMethods.map((method) => (
-        <li class="flex items-center gap-2">
-          <a href={method.url} target="_blank" class={`socialContainer ${method.containerClass}`} aria-label={`Ir a ${method.title}`}>
-            <Icon name={method.icon} class="socialSvg" />
-          </a>
-          <span class="text-lg text-secondary">{method.text}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
+
+        <button
+          class="w-full p-3 bg-[#6473d1] text-white font-bold hover:bg-[#404898] transition rounded-lg"
+          type="submit"
+        >
+          Enviar
+        </button>
+      </form>
+
+      <div
+        id="thankYouModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"
+      >
+        <div
+          class="bg-white p-10 rounded-xl shadow-2xl text-center relative max-w-md w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        >
+        <div class="mb-6">
+          <img src="/logotipoinnovanegro.png" alt="Ícono de la empresa" class="w-18 h-16 mx-auto" />
+        </div>
+        <h2 class="text-3xl font-bold mb-4 text-[#5e17eb]">¡Gracias!</h2>
+        <p class="text-lg text-gray-600">
+          Tu proyecto nos importa. Nos pondremos en contacto pronto.
+        </p>
+        <button
+          id="closeModal"
+          class="mt-6 px-6 py-3 bg-[#5e17eb] text-white rounded-lg text-lg hover:bg-[#4a0eac] transition"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+    
+
+      <ul class="contact-list">
+        {contactMethods.map((method) => (
+          <li class="flex items-center gap-2">
+            <a href={method.url} target="_blank" class={`socialContainer ${method.containerClass}`} aria-label={`Ir a ${method.title}`}>
+              <Icon name={method.icon} class="socialSvg" />
+            </a>
+            <span class="text-lg text-secondary">{method.text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
 </ContentSection>
+
+<script>
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+        });
+
+        if (response.ok) {
+          const modal = document.getElementById('thankYouModal');
+          if (modal) {
+            modal.classList.remove('hidden');
+          }
+        }
+      } catch (error) {
+      }
+    });
+  }
+
+  const closeModalButton = document.getElementById('closeModal');
+  if (closeModalButton) {
+    closeModalButton.addEventListener('click', function () {
+      const modal = document.getElementById('thankYouModal');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+    });
+  }
+</script>
+
+
 
 <style>
 @keyframes fadeIn {
