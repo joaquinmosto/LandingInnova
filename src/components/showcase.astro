@@ -12,10 +12,20 @@ const orderedSites = featuredSites.sort(
 );
 ---
 
-<ContentSection title="Proyectos" id="showcase">
-  <Fragment slot="lead">
-    Conoce algunos de nuestros <span class="text-primary">proyectos destacados</span> y cómo hemos logrado <span class="text-primary">resultados exitosos</span> para nuestros clientes.
-  </Fragment>
+<ContentSection title="" id="showcase">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start justify-start fade-in">
+    <div class="w-full sm:w-2/3 text-left fade-in">
+      <h1 class="text-4xl font-semibold leading-tight sm:text-6xl fade-in">
+         Desarrollo, optimización,         
+        <span class="text-primary whitespace-nowrap fade-in">
+          Innovación    
+        </span>
+      </h1>
+      <p class="text-2xl text-gray-400 sm:text-xl mt-4 fade-in">
+        Explora lo que hacemos
+      </p>
+    </div>
+  </div>
   <div class="max-w-6xl space-y-2">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {orderedSites.map((site) => <ShowcaseCard site={site} />)}
@@ -27,3 +37,20 @@ const orderedSites = featuredSites.sort(
     </p> -->
   </div>
 </ContentSection>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .fade-in {
+      opacity: 1;
+    }
+  }
+</style>

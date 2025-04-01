@@ -22,14 +22,10 @@ const links: Array<FooterLink> = [
 ---
 
 <footer class="relative flex flex-col items-center justify-center h-64 text-center">
-  <div
-    class="text-black text-9xl font-extrabold bg-gradient-to-b from-[#404898] to-transparent pointer-events-none z-10"
-    style="background-clip: text; -webkit-background-clip: text; color: transparent;"
-  >
-    INNOVA
+  <div class="absolute top-[-20px] left-1/2 transform -translate-x-1/2 -translate-y-2 z-10">
+    <img src="/isotipovioleta.png" alt="Innova logo" class="w-30 h-20 opacity-90 mix-blend-multiply scale-110" />
   </div>
-
-  <ul class="grid grid-cols-3 gap-4 sm:grid-cols-3 mt-4 z-20">
+  <ul class="flex justify-center gap-6 mt-12 z-20">
     {
       links.map((link) => (
         <li>
@@ -44,6 +40,7 @@ const links: Array<FooterLink> = [
       ))
     }
   </ul>
+  <div class="text-center mt-8">
+    <p class="text-sm text-gray-400">© 2025 Innova. Todos los derechos reservados.</p>
+  </div>
 </footer>
-
-

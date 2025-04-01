@@ -5,201 +5,187 @@ import type { FeatureItem } from "~/types";
 
 const features: Array<FeatureItem> = [
   {
-    title: "Soluciones Personalizadas",
-    description:
-      "Creamos sitios web a medida utilizando las últimas tecnologías y frameworks, adaptándonos a las necesidades específicas de tu negocio.",
+    title: "Personalizadas",
+    description: "Creamos sitios web a medida utilizando las últimas tecnologías y frameworks.",
     icon: "mdi:code-braces",
+    color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
-    title: "Integración de Inteligencia Artificial",
-    description:
-      "Integramos IA en tus servicios y funcionalidades para ofrecer experiencias personalizadas y automatizadas, mejorando la eficiencia de tu web.",
+    title: "IA Integración",
+    description: "Integramos IA en tus servicios para experiencias personalizadas y automatizadas.",
     icon: "mdi:brain",
+    color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
-    title: "Optimización para SEO",
-    description:
-      "Nos encargamos de la optimización de tu sitio web, implementando herramientas SEO avanzadas que mejoran tu posicionamiento en los motores de búsqueda.",
+    title: "SEO Optimizado",
+    description: "Optimización avanzada para SEO, mejorando tu posicionamiento web.",
     icon: "mdi:search-web",
+    color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
-    title: "E-Commerce Personalizado",
-    description:
-      "Desarrollamos tiendas en línea únicas, personalizadas para tu marca, con un enfoque en la experiencia de usuario y la conversión de ventas.",
+    title: "E-Commerce",
+    description: "Diseño y desarrollo de tiendas online adaptadas a tu marca.",
     icon: "mdi:storefront",
+    color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
-    title: "Generación de Códigos QR",
-    description:
-      "Integramos códigos QR de forma efectiva en tu estrategia digital, permitiendo una conexión directa con tus usuarios desde cualquier lugar.",
-    icon: "mdi:qrcode",
-  },
-  {
-    title: "Hosting y Dominios Personalizados",
-    description:
-      "Ofrecemos servicios de hosting y dominios personalizados para asegurar que tu sitio web esté siempre rápido y disponible en todo momento.",
+    title: "Hosting",
+    description: "Servicios personalizados de hosting y dominios optimizados.",
     icon: "mdi:server",
-  },
-  {
-    title: "Desarrollo Web Optimizado",
-    description:
-      "Optimizamos cada aspecto de tu sitio web para garantizar tiempos de carga ultrarrápidos y una experiencia de usuario excepcional.",
-    icon: "mdi:speedometer",
-  },
-  {
-    title: "Marketing y Asesoramiento",
-    description:
-      "Te guiamos en estrategias de marketing digital, ofreciendo asesoramiento experto para posicionar tu marca y alcanzar tus objetivos de negocio.",
-    icon: "mdi:bullhorn",
-  },
-  {
-    title: "Diseño Gráfico para la Identidad de tu Empresa",
-    description:
-      "Creamos diseños gráficos exclusivos que reflejan la esencia de tu marca, desde logotipos hasta material promocional, fortaleciendo tu identidad visual.",
-    icon: "mdi:brush",
+    color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
 ];
-
 ---
 
-<ContentSection title="Servicios" id="features">
-  <Fragment slot="lead">
-    Descubre las <span class="text-primary">soluciones personalizadas</span> que ofrecemos para tu empresa, con tecnologías de vanguardia y un enfoque único.
-  </Fragment>
-  <div class="container mx-auto px-4">
-    <div class="carousel-container relative overflow-hidden">
-      <ul class="carousel flex" aria-live="polite" aria-atomic="true">
-        {features.map(({ title, description, icon }) => (
-          <li class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 box-border p-6">
-            <div class="relative flex flex-col items-center gap-4 border border-default p-6 group transition-all duration-300 ease-in-out hover:shadow-lg h-60 md:h-80 lg:h-96">
-              <div class="flex items-center justify-center w-16 h-16 rounded-full border-2 border-current p-3 bg-white group-hover:bg-primary transition-colors duration-300">
-                <Icon name={icon} class="size-full text-primary group-hover:text-white transition-colors duration-300" />
-              </div>
-              <p class="text-center font-extrabold text-xl group-hover:text-primary transition-colors duration-300">{title}</p>
-              <p class="text-center text-sm text-offset opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:block">
-                {description}
-              </p>
-            </div>
-          </li>
-        ))}
-        <li class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 box-border p-6">
-          <div class="flex items-center justify-center h-60 md:h-80 lg:h-96">
-            <div class="text-black text-9xl font-extrabold bg-gradient-to-b from-[#404898] to-transparent pointer-events-none z-10"
-              style="background-clip: text; -webkit-background-clip: text; color: transparent;">
-              WEB SOLUTIONS
-            </div>
-          </div>
-        </li>
-        {features.map(({ title, description, icon }) => (
-          <li class="carousel-item flex-shrink-0 w-full md:w-1/2 lg:w-1/3 box-border p-6">
-            <div class="relative flex flex-col items-center gap-4 border border-default p-6 group transition-all duration-300 ease-in-out hover:shadow-lg h-60 md:h-80 lg:h-96">
-              <div class="flex items-center justify-center w-16 h-16 rounded-full border-2 border-current p-3 bg-white group-hover:bg-primary transition-colors duration-300">
-                <Icon name={icon} class="size-full text-primary group-hover:text-white transition-colors duration-300" />
-              </div>
-              <p class="text-center font-extrabold text-xl group-hover:text-primary transition-colors duration-300">{title}</p>
-              <p class="text-center text-sm text-offset opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:block">
-                {description}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+<ContentSection title="" id="features">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start justify-start fade-in">
+    <div class="w-full sm:w-2/4 text-left fade-in">
+      <h1 class="text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl fade-in max-w-[90%]">
+        Descubre las soluciones que ofrecemos para
+        <span class="text-primary whitespace-normal fade-in sm:inline">
+          tu negocio
+        </span>
+      </h1>
     </div>
+  </div>
+  <div class="palette fade-in">
+    {features.map(({ title, icon, description, color }) => (
+      <div class="color fade-in" style={`background: ${color};`}>
+        <Icon name={icon} class="icon fade-in" />
+        <p class="description fade-in">{description}</p>
+      </div>
+    ))}
   </div>
 </ContentSection>
 
 <style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.container {
-  max-width: 100%;
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.carousel-container {
-  overflow: hidden;
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes scroll {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(calc(-100% * 6)); }
+@media (max-width: 768px) {
+  .fade-in {
+    transform: translateY(15px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
 }
-
-.carousel {
+.palette {
   display: flex;
-  animation: scroll 60s infinite linear;
+  flex-direction: row;
+  height: 300px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 20px 0;
 }
 
-.carousel:hover {
-  animation-play-state: paused;
-}
-
-
-.carousel-item {
-  flex: 0 0 100%;
-  box-sizing: border-box;
-  height: auto;
-}
-
-@media (min-width: 768px) {
-  .carousel-item {
-    flex: 0 0 50%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-item {
-    flex: 0 0 33.33%;
-  }
-}
-
-.group {
+.color {
   height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
 }
 
-.group:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.85;
+}
+
+.color span {
+  position: absolute;
+  top: 20px;
+  opacity: 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: auto;
+  margin-bottom: 70px;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 0 15px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.color:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.color:hover .icon {
+  transform: translateY(-10px) scale(1.15);
+  opacity: 1;
+}
+
+.color:hover span {
+  opacity: 1;
   transform: translateY(-5px);
 }
 
-.group-hover .opacity-0 {
-  animation: fadeInUp 0.3s ease forwards;
+.color:hover .description {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@media (max-width: 768px) {
+  .palette {
+    flex-direction: column;
+    height: auto;
+  }
 
-.group:hover .size-full {
-  transform: rotate(10deg);
-  transition: transform 0.3s ease;
-}
+  .color {
+    width: 100%;
+    height: 220px;
+    padding-top: 40px;
+    margin-bottom: 10px;
+  }
 
-.group:hover .font-extrabold {
-  transform: scale(1.05);
-  transition: transform 0.3s ease, color 0.3s ease;
-  color: #404898; /* Color de acento */
+  .icon {
+    font-size: 3rem;
+  }
 }
-
-.carousel-item:first-of-type {
-  margin-left: 4rem;
-}
-
-.carousel-item:last-of-type {
-  margin-right: 4rem;
-}
-
-.carousel-item:last-of-type + .carousel-item:first-of-type {
-  margin-right: 4rem;
-}
-
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -50px 0px", threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>

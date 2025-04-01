@@ -1,24 +1,17 @@
 ---
-import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
 ---
 
 <section class="relative h-full bg-[#15192F]">
   <Starfield />
-  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
-    <HeroImage alt="Fondo inspirador con tecnologías avanzadas" src="/path/to/hero-image.jpg" />
-  </div>
   <div class="relative grid h-full place-items-center sm:grid-cols-2 px-4 md:px-10">
-    <h2 class="flex flex-col items-center gap-8 sm:gap-10 sm:self-auto sm:justify-self-end">
-      <div class="text-center font-extrabold tracking-tight text-[#404898] text-5xl md:text-7xl lg:text-[10rem]">
-        INNOVA
+    <h2 class="flex flex-col items-center justify-center gap-8 sm:gap-10">
+      <div class="flex justify-center items-center sm:ml-8 md:ml-12">
+        <img 
+          src="/logotipoinnovavioleta.png" 
+          alt="INNOVA" 
+          class="max-w-full h-auto sm:max-w-[100%] md:max-w-[95%] lg:max-w-[80%] mx-auto" />
       </div>
-      <p class="text-lg sm:text-2xl text-gray-300 text-center max-w-prose px-4 sm:px-0">
-        Transformamos el futuro con soluciones tecnológicas avanzadas que potencian tu negocio.
-      </p>
-      <a href="#contact" aria-label="Contáctanos" class="mt-8 bg-gradient-to-r from-[#404898] via-[#15192F] to-[#070019] hover:from-[#404898] hover:to-[#070019] text-white px-8 py-4 rounded-lg shadow-lg text-xl transition-all ease-in-out duration-300 transform hover:scale-105">
-        ¡Contáctanos!
-      </a>
     </h2>
   </div>
 </section>
@@ -51,6 +44,14 @@ import Starfield from "~/components/starfield.astro";
 
     .mt-8 {
       margin-top: 1rem;
+    }
+
+    .sm\\:mt-16 {
+      margin-top: 4rem;
+    }
+
+    .mt-10 {
+      margin-top: 2rem;
     }
   }
 </style>

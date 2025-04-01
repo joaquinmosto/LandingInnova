@@ -1,28 +1,56 @@
 ---
-import { Icon } from "astro-icon/components";
 import ContentSection from "~/components/content-section.astro";
 ---
 
-<ContentSection title="Transforma tu presencia digital" id="intro">
-  <!-- <Icon slot="eyebrow" name="logomark" class="size-32" /> -->
-  <Fragment slot="lead">
-    Impulsa tu negocio con soluciones web <span class="text-primary">integrales</span> que combinan <span class="text-primary">diseño</span> y <span class="text-primary">desarrollo</span> de alto rendimiento. <span class="text-primary">Optimización web</span> y <span class="text-primary">e-commerce personalizado</span> al alcance de tu mano.
-  </Fragment>
-  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-    <a
-      href="#features"
-      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
-    >
-      <Icon name="mdi:tools" class="size-8" />
-      <span>Descubre nuestros servicios</span>
-    </a>
-    <a
-      href="https://api.whatsapp.com/send/?phone=543515439227&text&type=phone_number&app_absent=0"
-      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
-    >
-      <Icon name="mdi:chat" class="size-8" />
-      <span>Contacta con nosotros</span>
-    </a>
+<ContentSection title="" id="intro">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start justify-start fade-in">
+    <div class="w-full sm:w-2/3 text-left fade-in">
+      <h1 class="text-6xl font-semibold leading-tight sm:text-7xl fade-in">
+        Impulsa tu negocio con  
+        <span class="text-primary whitespace-nowrap fade-in">soluciones web</span>
+      </h1>
+      <p class="text-lg sm:text-2xl text-gray-400 leading-snug fade-in mt-6">
+        Desarrollamos  
+        <span class="text-primary">páginas web</span>  
+        y 
+        <span class="text-primary whitespace-nowrap">e-commerce</span>
+      </p>
+      <p class="text-base sm:text-2xl text-gray-400 mt-2 leading-snug fade-in ">
+        Todo a medida, con la experiencia de un equipo profesional 
+      </p>
+    </div>
+  </div>
+</ContentSection>
+<ContentSection title="" id="cta">
+  <div class="relative w-full py-16 fade-in mt-16"> 
+    <div class="max-w-5xl mx-auto px-6 sm:px-12 flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-between gap-6">
+      <a
+        href="#contact"
+        class="px-10 py-5 text-xl font-semibold text-white bg-primary rounded-full shadow-md 
+               hover:bg-[#404898] hover:shadow-lg transition-transform duration-300 hover:scale-105 
+               dark:bg-[#6473d1] dark:hover:bg-[#404898]"
+      >
+        Crear
+      </a>
+      <p class="text-2xl text-gray-500 dark:text-gray-300 text-center sm:text-left sm:max-w-lg leading-relaxed">
+        ¿Listo para empezar? Solicita tu presupuesto al 
+        <span class="text-primary">instante</span>
+      </p>
+    </div>
   </div>
 </ContentSection>
 
+<style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+  }
+  @media (max-width: 768px) {
+    .fade-in {
+      opacity: 1;
+    }
+  }
+</style>

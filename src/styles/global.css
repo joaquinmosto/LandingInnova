@@ -7,6 +7,6 @@ a,
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent;
-  @apply bg-gradient-to-tl from-[#FFFFFF] via-[#404898] to-[#FFFFFF];
+  color: #5e17eb;
 }
+

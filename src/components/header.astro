@@ -10,12 +10,17 @@ const navItems: Array<NavItem> = [
 
 ];
 ---
-
 <header
   id="page-header"
   class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
+    <img 
+      id="logo"
+      src="/isotipovioleta.png" 
+      alt="Innova" 
+      class="h-8 w-auto opacity-0 transition-opacity duration-500 ease-in-out"
+    />
   </a>
   <div>
     <div class="flex items-center gap-6">
@@ -55,9 +60,6 @@ const navItems: Array<NavItem> = [
               <Icon name="mdi:close" class="size-8" />
             </button>
           </header>
-          <div class="flex justify-center">
-            <Icon name="logomark" class="size-16" />
-          </div>
           <nav>
             <ul class="flex flex-col">
               {
@@ -88,11 +90,13 @@ const navItems: Array<NavItem> = [
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
   const closeNavButton = document.querySelector("#close-nav-button");
+  const logo = document.querySelector("#logo");
 
   invariant(header, "header should not be null");
   invariant(menu, "menu should not be null");
   invariant(openNavButton, "openNavButton should not be null");
   invariant(closeNavButton, "closeNavButton should not be null");
+  invariant(logo, "logo should not be null");
 
   const openMenu = () => {
     MicroModal.show(menuModalId, { disableScroll: true });
@@ -108,6 +112,12 @@ const navItems: Array<NavItem> = [
   document.addEventListener("scroll", () => {
     const d = page.clientHeight - page.scrollTop - header.offsetHeight;
     header.classList.toggle("fixed-header", d < 0);
+
+    if (page.scrollTop > 0) {
+      logo.classList.add("opacity-100");
+    } else {
+      logo.classList.remove("opacity-100");
+    }
   });
 
   menu.addEventListener("click", (event) => {
