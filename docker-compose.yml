@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    command: npm run preview
+
+  backend:
+    build: .
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+    command: node src/server/server.js
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/letsencrypt
+      - ./html:/usr/share/nginx/html
+    depends_on:
+      - frontend
+      - backend
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certs:/etc/letsencrypt
+      - ./webroot:/var/www/html
+    entrypoint: 
+      - /bin/sh
+      - -c
+      - ./certbot_renew.sh

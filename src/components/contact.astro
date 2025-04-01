@@ -59,41 +59,50 @@ const contactMethods = [
         />
       </div>
 
-      <input
-        class="custom-input"
-        type="email"
-        placeholder="Email"
-        id="email"
-        name="email"
-        required
-      />
-      <input
-        class="custom-input"
-        type="tel"
-        placeholder="Teléfono"
-        id="phone"
-        name="phone"
-        required
-      />
-
-      <textarea
-        class="custom-input"
-        placeholder="E hacete amigo"
-        id="message"
-        name="message"
-        rows="4"
-        required
-      ></textarea>
-
-      <button
-        class="w-full p-3 bg-[#6473d1] text-white font-bold hover:bg-[#404898] transition rounded-lg"
-        type="submit"
-      >
-        Enviar
-      </button>
-    </form>
-    
-    <ul class="contact-list">
+      <form action="https://innova-webdev.com/api/enviar-contacto" method="POST" class="grid gap-6">
+        <div class="flex gap-3">
+          <input
+            class="custom-input"
+            type="text"
+            placeholder="Nombre"
+            id="name"
+            name="name"
+            required
+          />
+          <input
+            class="custom-input"
+            type="text"
+            placeholder="Apellido"
+            id="lastname"
+            name="lastname"
+          />
+        </div>
+        
+        <input
+          class="custom-input"
+          type="email"
+          placeholder="Email"
+          id="email"
+          name="email"
+          required
+        />
+        <input
+          class="custom-input"
+          type="tel"
+          placeholder="Teléfono"
+          id="phone"
+          name="phone"
+          required
+        />
+        
+        <textarea
+          class="custom-input"
+          placeholder="Queremos saber mas de tu proyecto..."
+          id="message"
+          name="message"
+          rows="4"
+          required
+        ></textarea>
       
       {contactMethods.map((method) => (
         <li class="flex items-center gap-2">
