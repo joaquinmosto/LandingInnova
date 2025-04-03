@@ -40,64 +40,35 @@ const contactMethods = [
     </div>
   </div>
   <div class="grid md:grid-cols-2 gap-12 w-full max-w-4xl relative z-10">
-      <form action="https://innova-webdev.com/api/enviar-contacto" method="POST" class="grid gap-6">
-        <div class="flex gap-3">
-          <input
-            class="custom-input"
-            type="text"
-            placeholder="Nombre"
-            id="name"
-            name="name"
-            required
-          />
-          <input
-            class="custom-input"
-            type="text"
-            placeholder="Apellido"
-            id="lastname"
-            name="lastname"
-          />
-        </div>
-        
-        <input
-          class="custom-input"
-          type="email"
-          placeholder="Email"
-          id="email"
-          name="email"
-          required
-        />
-        <input
-          class="custom-input"
-          type="tel"
-          placeholder="Teléfono"
-          id="phone"
-          name="phone"
-          required
-        />
-        
-        <textarea
-          class="custom-input"
-          placeholder="Queremos saber mas de tu proyecto..."
-          id="message"
-          name="message"
-          rows="4"
-          required
-        ></textarea>
-
-        <button
-          class="w-full p-3 bg-[#6473d1] text-white font-bold hover:bg-[#404898] transition rounded-lg"
-          type="submit"
-        >
-          Enviar
-        </button>
-      </form>
-
-      <div
-        id="thankYouModal"
-        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"
+    <form action="https://innova-webdev.com/api/enviar-contacto" method="POST" class="grid gap-6">
+      <div class="flex gap-3">
+        <input class="custom-input" type="text" placeholder="Nombre" id="name" name="name" required />
+        <input class="custom-input" type="text" placeholder="Apellido" id="lastname" name="lastname" />
+      </div>
+    
+      <input class="custom-input" type="email" placeholder="Email" id="email" name="email" required />
+      <input class="custom-input" type="tel" placeholder="Teléfono" id="phone" name="phone" required />
+    
+      <textarea class="custom-input" placeholder="Queremos saber más de tu proyecto..." id="message" name="message" rows="4" required></textarea>
+    
+      <button
+        id="submitBtn"
+        class="w-full p-3 bg-[#6473d1] text-white font-bold hover:bg-[#404898] transition rounded-lg flex items-center justify-center"
+        type="submit"
       >
-        <div
+        <span id="buttonText">Enviar</span>
+        <span id="loadingSpinner" class="hidden ml-2">
+          <img src="/isotipovioleta.png" alt="Cargando..." class="blink-effect" width="30">
+        </span>
+        
+      </button>
+    </form>
+    
+    <div
+      id="thankYouModal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"
+    >
+      <div
           class="bg-white p-10 rounded-xl shadow-2xl text-center relative max-w-md w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         >
         <div class="mb-6">
@@ -116,25 +87,36 @@ const contactMethods = [
       </div>
     </div>
     
-
-      <ul class="contact-list">
-        {contactMethods.map((method) => (
-          <li class="flex items-center gap-2">
-            <a href={method.url} target="_blank" class={`socialContainer ${method.containerClass}`} aria-label={`Ir a ${method.title}`}>
-              <Icon name={method.icon} class="socialSvg" />
-            </a>
-            <span class="text-lg text-secondary">{method.text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul class="contact-list">
+      {contactMethods.map((method) => (
+        <li class="flex items-center gap-3">
+          <a href={method.url} target="_blank" class={`socialContainer ${method.containerClass}`} aria-label={`Ir a ${method.title}`}>
+            <Icon name={method.icon} class="socialSvg text-2xl" />
+          </a>
+          <a href={method.url} target="_blank" class="contact-text">
+            {method.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </ContentSection>
 
 <script>
-  const form = document.querySelector('form');
+  const form = document.querySelector("form");
+  const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
+  const buttonText = document.getElementById("buttonText");
+  const loadingSpinner = document.getElementById("loadingSpinner");
+
   if (form) {
-    form.addEventListener('submit', async function (event) {
+    form.addEventListener("submit", async function (event) {
       event.preventDefault();
+
+      if (submitBtn && buttonText && loadingSpinner) {
+        submitBtn.disabled = true;
+        buttonText.textContent = "Enviando...";
+        loadingSpinner.classList.remove("hidden");
+      }
 
       const formData = new FormData(form);
 
@@ -145,28 +127,31 @@ const contactMethods = [
         });
 
         if (response.ok) {
-          const modal = document.getElementById('thankYouModal');
-          if (modal) {
-            modal.classList.remove('hidden');
-          }
+          const modal = document.getElementById("thankYouModal");
+          if (modal) modal.classList.remove("hidden");
+
+          form.reset();
         }
       } catch (error) {
+        console.error("Error al enviar formulario", error);
+      }
+
+      if (submitBtn && buttonText && loadingSpinner) {
+        submitBtn.disabled = false;
+        buttonText.textContent = "Enviar";
+        loadingSpinner.classList.add("hidden");
       }
     });
   }
 
-  const closeModalButton = document.getElementById('closeModal');
+  const closeModalButton = document.getElementById("closeModal");
   if (closeModalButton) {
-    closeModalButton.addEventListener('click', function () {
-      const modal = document.getElementById('thankYouModal');
-      if (modal) {
-        modal.classList.add('hidden');
-      }
+    closeModalButton.addEventListener("click", function () {
+      const modal = document.getElementById("thankYouModal");
+      if (modal) modal.classList.add("hidden");
     });
   }
 </script>
-
-
 
 <style>
 @keyframes fadeIn {
@@ -211,27 +196,14 @@ const contactMethods = [
   justify-content: center;
 }
 
-@keyframes fadeInFromSide {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@keyframes fadeOutAndIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
+.blink-effect {
+  animation: blink 2s infinite;
 }
 
 .logo {
