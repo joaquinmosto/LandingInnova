@@ -103,6 +103,8 @@ const contactMethods = [
 </ContentSection>
 
 <script>
+  declare var gtag: Function;
+
   const form = document.querySelector("form");
   const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
   const buttonText = document.getElementById("buttonText");
@@ -127,6 +129,13 @@ const contactMethods = [
         });
 
         if (response.ok) {
+          if (typeof gtag === "function") {
+            gtag("event", "form_submit", {
+              event_category: "Contacto",
+              event_label: "Formulario Landing",
+            });
+          }
+
           const modal = document.getElementById("thankYouModal");
           if (modal) modal.classList.remove("hidden");
 
@@ -163,9 +172,10 @@ const contactMethods = [
     }
 }
 
-.animate-fadeIn {
-    animation: fadeIn 2s ease-in-out forwards;
-}
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
 
 @tailwind base;
 @tailwind components;
@@ -230,10 +240,9 @@ body.dark .logo {
     z-index: -1;
   }
 }
-.fade-in 
-  {
+.fade-in {
     opacity: 0;
-    transition: opacity 1s ease-out;
+    animation: fadeIn 1.5s ease-in-out forwards;
   }
 
   .fade-in.visible {
@@ -242,7 +251,8 @@ body.dark .logo {
 
   @media (max-width: 768px) {
     .fade-in {
-      opacity: 1;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
     }
   }
 </style>
