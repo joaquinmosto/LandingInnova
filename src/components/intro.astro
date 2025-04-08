@@ -2,7 +2,7 @@
 import ContentSection from "~/components/content-section.astro";
 ---
 
-<ContentSection title="" id="intro">
+<ContentSection title="" id="intro" aria-labelledby="intro-title">
 <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start justify-start fade-in">
     <div class="w-full sm:w-2/3 text-left fade-in">
       <h1 class="text-5xl font-semibold leading-tight sm:text-7xl fade-in">
@@ -21,24 +21,68 @@ import ContentSection from "~/components/content-section.astro";
     </div>
   </div>
 </ContentSection>
-<ContentSection title="" id="cta">
-  <div class="relative w-full py-16 fade-in mt-16"> 
-    <div class="max-w-5xl mx-auto px-6 sm:px-12 flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-between gap-6">
-      <a
-        href="#contact"
-        class="px-10 py-5 text-xl font-semibold text-white bg-primary rounded-full shadow-md 
-               hover:bg-[#404898] hover:shadow-lg transition-transform duration-300 hover:scale-105 
-               dark:bg-[#6473d1] dark:hover:bg-[#404898]"
-      >
-        Crear
-      </a>
-      <p class="text-2xl text-gray-500 dark:text-gray-300 text-center sm:text-left sm:max-w-lg leading-relaxed">
-        ¿Listo para empezar? Solicita tu presupuesto al 
-        <span class="text-primary">instante</span>
-      </p>
+
+<ContentSection title="" id="cta" aria-labelledby="cta-title">
+  <div class="relative w-full py-10 border-2 border-transparent rounded-lg flex flex-col sm:flex-row items-center sm:items-start overflow-hidden animate-border bg-opacity-50">
+    <div class="max-w-7xl mx-auto px-6 sm:px-0 flex flex-col sm:grid sm:grid-cols-2 items-center sm:items-start gap-6 sm:gap-12">
+      <div class="flex justify-center sm:justify-start">
+        <a
+          href="#contact"
+          class="inline-flex px-10 py-5 text-xl font-semibold text-white bg-primary rounded-full shadow-md 
+                 hover:bg-[#404898] hover:shadow-lg transition-transform duration-300 hover:scale-105 
+                 dark:bg-[#6473d1] dark:hover:bg-[#404898]"
+        >
+          Crear
+        </a>
+      </div>
+      <div class="flex flex-col items-center sm:items-start text-center sm:text-left justify-center pr-0 sm:pr-12">
+        <h1 class="text-lg sm:text-2xl text-gray-400 dark:text-gray-300 fade-in-left">
+          ¿Listo para empezar?
+        </h1>
+        <h2 class="text-lg sm:text-2xl text-gray-400 dark:text-gray-300 fade-in-left">
+          Solicita tu presupuesto al <span class="text-primary">instante</span>
+        </h2>
+      </div>
     </div>
   </div>
 </ContentSection>
+
+<style>
+  @keyframes border-animation {
+    0% { border-color: rgba(120, 8, 208, 0.5); }
+    25% { border-color: rgba(162, 59, 231, 0.5); }
+    50% { border-color: rgba(90, 6, 161, 0.5); }
+    75% { border-color: rgba(120, 8, 208, 0.5); }
+    100% { border-color: rgba(120, 8, 208, 0.5); }
+  }
+
+  .animate-border {
+    animation: border-animation 3s infinite;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  /* Nueva animación fade-in desde la izquierda */
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  .fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Para móviles: mostrar directamente si querés evitar JS */
+  @media (max-width: 768px) {
+    .fade-in-left {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
 
 <style>
   .fade-in {
@@ -54,3 +98,22 @@ import ContentSection from "~/components/content-section.astro";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const fadeInElements = document.querySelectorAll(".fade-in");
+  const fadeInLeftElements = document.querySelectorAll(".fade-in-left");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeInElements.forEach(el => observer.observe(el));
+  fadeInLeftElements.forEach(el => observer.observe(el));
+});
+
+</script>
