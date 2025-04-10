@@ -12,10 +12,10 @@ import ContentSection from "~/components/content-section.astro";
       <p class="text-lg sm:text-2xl text-gray-400 leading-snug fade-in mt-6">
         Desarrollamos  
         <span class="text-primary">páginas web</span>  
-        y 
+        /
         <span class="text-primary whitespace-nowrap">e-commerce</span>
       </p>
-      <p class="text-base sm:text-2xl text-gray-400 mt-2 leading-snug fade-in ">
+      <p class="text-lg sm:text-2xl text-gray-400 mt-2 leading-snug fade-in ">
         Todo a medida, con la experiencia de un equipo profesional 
       </p>
     </div>
@@ -62,7 +62,6 @@ import ContentSection from "~/components/content-section.astro";
     border-style: solid;
   }
 
-  /* Nueva animación fade-in desde la izquierda */
   .fade-in-left {
     opacity: 0;
     transform: translateX(-40px);
@@ -74,7 +73,6 @@ import ContentSection from "~/components/content-section.astro";
     transform: translateX(0);
   }
 
-  /* Para móviles: mostrar directamente si querés evitar JS */
   @media (max-width: 768px) {
     .fade-in-left {
       opacity: 1;

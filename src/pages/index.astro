@@ -12,7 +12,7 @@ import "~/styles/index.css";
 const { generator, site } = Astro;
 const image = new URL("/isotipovioleta.png", site);
 const description =
-  "Innovamos el futuro con soluciones tecnológicas avanzadas que potencian tu negocio.";
+  "Innova: desarrollo de tiendas online con Tiendanube. Creamos páginas web profesionales a medida y sistemas e‑commerce en Argentina.";
 ---
 
 <!doctype html>
@@ -20,10 +20,10 @@ const description =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/isotipovioleta.png" type="image/svg+xml" />
+    <link rel="icon" href="/isotipovioleta.WebP" type="image/svg+xml" />
     <meta name="generator" content={generator} />
     
-    <title>INNOVA</title>
+    <title>Innova | Desarrollo de Tiendas Online</title>
     <meta name="description" content={description} />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5EM93SBF1"></script>
     
@@ -41,8 +41,13 @@ const description =
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:url" content={site} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="keywords" content="desarrollo web, e-commerce, SEO, soluciones digitales, páginas web, innova, tiendanube, tienda, dearrollo"/>
+    <meta name="keywords" content="
+      desarrollo de tiendas online con Tiendanube para pymes,
+      agencia de desarrollo ecommerce con Tiendanube,
+      desarrollo web a medida para empresas,
+      creación de páginas web profesionales para pymes
+    " />
+
     <meta name="author" content="Innova" />
     <meta name="robots" content="index, follow">
     
@@ -50,7 +55,29 @@ const description =
     <meta name="twitter:title" content="Innova - Soluciones tecnológicas">
     <meta name="twitter:description" content="Innovamos el futuro con soluciones tecnológicas avanzadas.">
     <meta name="twitter:image" content={image}>
-    
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Innova WebDev",
+        "url": "https://innova-webdev.com/",
+        "logo": "https://innova-webdev.com/isotipovioleta.WebP",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+54-351-5439227",
+            "contactType": "customer service",
+            "areaServed": "Global",
+            "availableLanguage": ["Spanish", "English"]
+          }
+        ],
+        "sameAs": [
+          "https://instagram.com/innova.webdev"
+        ]
+      }
+    </script>
+      
     <script is:inline>
       const themeSaved = localStorage.getItem("theme");
       
