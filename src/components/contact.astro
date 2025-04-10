@@ -39,7 +39,7 @@ const contactMethods = [
       </p>
     </div>
   </div>
-  <div class="grid md:grid-cols-2 gap-12 w-full max-w-4xl relative z-10">
+  <div class="grid md:grid-cols-2 gap-12 w-full max-w-4xl relative z-10 fade-in">
     <form action="https://innova-webdev.com/api/enviar-contacto" method="POST" class="grid gap-6">
       <div class="flex gap-3">
         <input class="custom-input" type="text" placeholder="Nombre" id="name" name="name" required />
@@ -58,7 +58,7 @@ const contactMethods = [
       >
         <span id="buttonText">Enviar</span>
         <span id="loadingSpinner" class="hidden ml-2">
-          <img src="/isotipovioleta.png" alt="Cargando..." class="blink-effect" width="30">
+          <img src="/isotipovioleta.WebP" alt="Cargando..." class="blink-effect" width="30">
         </span>
         
       </button>
@@ -71,9 +71,6 @@ const contactMethods = [
       <div
           class="bg-white p-10 rounded-xl shadow-2xl text-center relative max-w-md w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         >
-        <div class="mb-6">
-          <img src="/logotipoinnovanegro.png" alt="Ícono de la empresa" class="w-18 h-16 mx-auto" />
-        </div>
         <h2 class="text-3xl font-bold mb-4 text-[#5e17eb]">¡Gracias!</h2>
         <p class="text-lg text-gray-600">
           Tu proyecto nos importa. Nos pondremos en contacto pronto.
@@ -101,6 +98,7 @@ const contactMethods = [
     </ul>
   </div>
 </ContentSection>
+
 
 <script>
   declare var gtag: Function;

@@ -6,35 +6,36 @@ import type { FeatureItem } from "~/types";
 const features: Array<FeatureItem> = [
   {
     title: "E-Commerce",
-    description: "Diseño y desarrollo de tiendas online adaptadas a tu marca.",
+    description: "Diseño y desarrollo de tiendas online personalizadas adaptadas a tu marca y optimizadas para una excelente experiencia de usuario. Somos partners oficiales de Tiendanube.",
     icon: "mdi:storefront",
     color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
     title: "Personalizadas",
-    description: "Creamos sitios web a medida utilizando las últimas tecnologías y frameworks.",
+    description: "Creamos sitios web a medida con diseño único, utilizando las últimas tecnologías y frameworks como React, Vue, NetxJS.",
     icon: "mdi:code-braces",
     color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
     title: "IA Integración",
-    description: "Integramos IA en tus servicios para experiencias personalizadas y automatizadas.",
+    description: "Integramos inteligencia artificial (IA) avanzada en tus servicios para crear experiencias personalizadas, automatizadas y escalables para tu negocio.",
     icon: "mdi:brain",
     color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
     title: "SEO Optimizado",
-    description: "Optimización avanzada para SEO, mejorando tu posicionamiento web.",
+    description: "Optimización avanzada para SEO, mejorando tu posicionamiento web en Google y otros motores de búsqueda, aumentando el tráfico orgánico.",
     icon: "mdi:search-web",
     color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
   {
     title: "Hosting",
-    description: "Servicios personalizados de hosting y dominios optimizados.",
+    description: "Servicios personalizados de hosting y dominios optimizados para sitios web de alto rendimiento, especialmente para tiendas online y landings.",
     icon: "mdi:server",
     color: "linear-gradient(135deg, #5e17eb, #070019)",
   },
 ];
+
 ---
 
 <ContentSection title="" id="features">
@@ -105,7 +106,7 @@ const features: Array<FeatureItem> = [
 
 .icon {
   font-size: 4rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 0.85;
 }
@@ -132,6 +133,7 @@ const features: Array<FeatureItem> = [
   padding: 0 15px;
   text-align: center;
   font-weight: 400;
+  min-height: 60px;
 }
 
 .color:hover {

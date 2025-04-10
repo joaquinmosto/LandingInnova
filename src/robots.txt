@@ -1,0 +1,6 @@
+# robots.txt para https://innova-webdev.com/
+
+User-agent: *
+Disallow:
+
+Sitemap: https://innova-webdev.com/sitemap.xml

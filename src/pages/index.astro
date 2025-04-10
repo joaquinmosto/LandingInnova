@@ -12,7 +12,7 @@ import "~/styles/index.css";
 const { generator, site } = Astro;
 const image = new URL("/isotipovioleta.png", site);
 const description =
-  "Innova: desarrollo de tiendas online con Tiendanube. Creamos páginas web profesionales a medida y sistemas e‑commerce en Argentina.";
+  "Innova: desarrollo de tiendas online con Tiendanube. Creamos páginas web profesionales a medida y sistemas eCommerce en Argentina.";
 ---
 
 <!doctype html>
@@ -42,12 +42,17 @@ const description =
     <meta property="og:image" content={image} />
     <meta property="og:url" content={site} />
     <meta name="keywords" content="
-      desarrollo de tiendas online con Tiendanube para pymes,
-      agencia de desarrollo ecommerce con Tiendanube,
-      desarrollo web a medida para empresas,
-      creación de páginas web profesionales para pymes
+      desarrollo de tiendas online personalizadas con Tiendanube,
+      agencia de desarrollo ecommerce optimizada para pymes,
+      creación de sitios web a medida con React y Vue,
+      integración de inteligencia artificial en servicios online,
+      optimización SEO avanzada para posicionamiento web,
+      hosting personalizado para tiendas online y landings,
+      desarrollo de ecommerce para negocios exitosos,
+      soluciones web avanzadas para mejorar experiencia de usuario,
+      servicios de hosting y dominios para alto rendimiento web
     " />
-
+    
     <meta name="author" content="Innova" />
     <meta name="robots" content="index, follow">
     
@@ -55,7 +60,9 @@ const description =
     <meta name="twitter:title" content="Innova - Soluciones tecnológicas">
     <meta name="twitter:description" content="Innovamos el futuro con soluciones tecnológicas avanzadas.">
     <meta name="twitter:image" content={image}>
-
+    
+    <link rel="preload" as="image" href="/logotipoinnovavioleta.WebP" type="image/webp" />
+    
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
