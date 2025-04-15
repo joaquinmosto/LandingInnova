@@ -1,4 +1,4 @@
-sitemap: /sitemap.xml
+Sitemap: https://innova-webdev.com/sitemap.xml
 
-user-agent: *
-allow: /
+User-agent: *
+Allow: /
