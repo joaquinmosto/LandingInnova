@@ -1,13 +1,24 @@
+import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
-import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import robots from "@itsmatteomanf/astro-robots-txt";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://innova-webdev.com",
-  integrations: [tailwind(), icon()],
+
+  integrations: [
+    tailwind(),
+    icon(),
+    sitemap(),  
+    robots({
+      policy: [{ userAgent: "*", allow: "/" }],
+      sitemap: "/sitemap.xml",
+    }),
+  ],
+
   server: {
-    host: '0.0.0.0', // Asegúrate de que el servidor escuche en todas las interfaces
-    port: 10000
-  }
+    host: "0.0.0.0",
+    port: 10000,
+  },
 });

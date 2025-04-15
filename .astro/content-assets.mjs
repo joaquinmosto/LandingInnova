@@ -1,0 +1,6 @@
+
+import __ASTRO_IMAGE_IMPORT_Zrgpcm from "/src/content/showcase/_images/AnatoliaFondo.PNG?astroContentImageFlag=&importer=src%2Fcontent%2Fshowcase%2Fanatolia.json";
+import __ASTRO_IMAGE_IMPORT_Z151Tiq from "/src/content/showcase/_images/Malcriadosfondo.PNG?astroContentImageFlag=&importer=src%2Fcontent%2Fshowcase%2FmalcriadosFsa.json";
+import __ASTRO_IMAGE_IMPORT_Otp5m from "/src/content/showcase/_images/suplementacionfsafondo1.PNG?astroContentImageFlag=&importer=src%2Fcontent%2Fshowcase%2Fsuplementacionfsa.json";
+export default new Map([["/src/content/showcase/_images/AnatoliaFondo.PNG?astroContentImageFlag=&importer=src%2Fcontent%2Fshowcase%2Fanatolia.json", __ASTRO_IMAGE_IMPORT_Zrgpcm], ["/src/content/showcase/_images/Malcriadosfondo.PNG?astroContentImageFlag=&importer=src%2Fcontent%2Fshowcase%2FmalcriadosFsa.json", __ASTRO_IMAGE_IMPORT_Z151Tiq], ["/src/content/showcase/_images/suplementacionfsafondo1.PNG?astroContentImageFlag=&importer=src%2Fcontent%2Fshowcase%2Fsuplementacionfsa.json", __ASTRO_IMAGE_IMPORT_Otp5m]]);
+		
