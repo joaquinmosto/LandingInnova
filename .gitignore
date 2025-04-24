@@ -1,0 +1,34 @@
+# --- Node.js ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Astro build output ---
+dist/
+.cache/
+build/
+
+# --- Astro integrations ---
+public/build/
+
+# --- Env files ---
+.env
+.env.*.local
+
+# --- OS-specific ---
+.DS_Store
+Thumbs.db
+
+# --- VSCode config (opcional) ---
+.vscode/
+
+# --- Logs ---
+*.log
+
+# --- TypeScript ---
+*.tsbuildinfo
+
+# --- Other ---
+coverage/
