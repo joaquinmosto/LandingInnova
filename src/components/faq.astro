@@ -1,6 +1,5 @@
 ---
 import ContentSection from "~/components/content-section.astro";
-
 interface FAQ {
   question: string;
   answerIntro: string;
@@ -91,6 +90,19 @@ const faqs: FAQ[] = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: [faq.answerIntro, ...faq.answerPoints].filter(Boolean).join(" "),
+    },
+  })),
+};
+
 ---
 
 <ContentSection title="" id="faq">
@@ -128,24 +140,9 @@ const faqs: FAQ[] = [
   </div>
 </ContentSection>
 
-
-<script type="application/ld+json" is:inline>
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  })}
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <style>
-
 .fade-in {
     opacity: 0;
     transition: opacity 1s ease-out;
