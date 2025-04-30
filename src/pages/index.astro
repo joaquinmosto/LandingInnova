@@ -88,6 +88,8 @@ const description =
     </script>
       
     <script is:inline>
+      document.documentElement.dataset.theme = "dark";
+
       const themeSaved = localStorage.getItem("theme");
       
       if (themeSaved) {
