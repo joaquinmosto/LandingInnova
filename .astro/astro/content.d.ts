@@ -150,6 +150,11 @@ declare module 'astro:content' {
   collection: "showcase";
   data: InferEntrySchema<"showcase">
 };
+"guillemotos": {
+	id: "guillemotos";
+  collection: "showcase";
+  data: InferEntrySchema<"showcase">
+};
 "malcriadosFsa": {
 	id: "malcriadosFsa";
   collection: "showcase";
